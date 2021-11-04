@@ -60,8 +60,9 @@ def rechteck_schoner(laenge, hoehe, abstand, x, y):
 
             myTurtlePos = myTurtle.pos()
 
-            rechteck(laenge - (laenge1 + 3 * abstand), hoehe1, abstand, myTurtlePos[0], myTurtlePos[1])#
 
+            rechteck(laenge - (laenge1 + 3 * abstand), hoehe1, abstand, myTurtlePos[0], myTurtlePos[1])#
+            rechteck_schoner(laenge - (laenge1 + 3 * abstand), hoehe1, abstand, myTurtlePos[0], myTurtlePos[1])
 
 
             myTurtle.penup()
