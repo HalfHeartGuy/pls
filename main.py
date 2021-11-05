@@ -11,11 +11,26 @@ myTurtle = turtle.Turtle()
 myTurtle.reset()
 
 
+def colors():
+    colors = []
+    r = randint(0,255)
+    g = randint(0,255)
+    b = randint(0,255)
+    colors.append(r)
+    colors.append(g)
+    colors.append(b)
+    return colors
+
+
+
 def rechteck(laenge, hoehe, abstand, x, y):
+
+    
     myTurtle.penup()
     myTurtle.goto(x, y)
     myTurtle.pendown()
-
+    color = colors()
+    myTurtle.color((color[0],color[1],color[2]))
     for i in range(0, 2):
         myTurtle.forward(laenge)
         myTurtle.right(90)
