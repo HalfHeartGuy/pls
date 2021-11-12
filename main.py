@@ -23,7 +23,7 @@ def colors():
 
 
 
-def rechteck(laenge, hoehe, abstand, x, y):
+def rechteck(laenge, hoehe, x, y):
 
     
     myTurtle.penup()
@@ -54,17 +54,18 @@ def positionieren(abstand):
 def rechteck_schoner(laenge, hoehe, abstand, x, y):
     positionieren(abstand)
 
+    candrawBox = candraw2boxes(laenge,hoehe,abstand)
 
-    if laenge > 3 * abstand and hoehe > 2 * abstand:
-        if abstand * 3 < laenge - 6 * abstand:
-            laenge1 = randint(abstand * 3,laenge - 6 * abstand)
+    if candrawBox:
+        if abstand * 3 < laenge:
+            laenge1 = randint(abstand * 3,laenge)
 
             hoehe1 = hoehe - 2 * abstand
 
             myTurtlePos = myTurtle.pos()
             x1 = myTurtlePos[0]
             y2 = myTurtlePos[1]
-            rechteck(laenge1,hoehe1,abstand,myTurtlePos[0],myTurtlePos[1])
+            rechteck(laenge1,hoehe1,myTurtlePos[0],myTurtlePos[1])
 
 
 
@@ -76,7 +77,7 @@ def rechteck_schoner(laenge, hoehe, abstand, x, y):
             myTurtlePos = myTurtle.pos()
 
 
-            rechteck(laenge - (laenge1 + 3 * abstand), hoehe1, abstand, myTurtlePos[0], myTurtlePos[1])#
+            rechteck(laenge - (laenge1 + 3 * abstand), hoehe1,  myTurtlePos[0], myTurtlePos[1])#
             rechteck_schoner(laenge - (laenge1 + 3 * abstand), hoehe1, abstand, myTurtlePos[0], myTurtlePos[1])
 
 
@@ -91,6 +92,18 @@ def rechteck_schoner(laenge, hoehe, abstand, x, y):
 
 
 
+
+
+def candraw2boxes(laenge, hoehe, abstand):
+    if laenge > 3 * abstand and hoehe > 2 * abstand:
+        return True              
+    
+    elif laenge > 2 * abstand and hoehe > 3 * abstand:
+        return True
+    
+    
+    else:
+        False
 
 
 
@@ -118,5 +131,5 @@ def aussen_rechteck(laenge,hoehe,abstand,startX,startY):
     if laenge > 3 * abstand and hoehe > 2 * abstand:
 
         rechteck_schoner(laenge,hoehe,abstand,startX,startY)
-aussen_rechteck(450,450,10,0,0)
+aussen_rechteck(250,350,10,-200,200)
 
